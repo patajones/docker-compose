@@ -3,7 +3,7 @@ version: '3.3'
 services:
   git:
     image: alpine/git
-    command: git clone https://github.com/patajones/redmine_prj_treeview.git /plugins/redmine_prj_treeview
+    command: clone https://github.com/patajones/redmine_prj_treeview.git /plugins/redmine_prj_treeview
     volumes:
       - type: volume
         source: plugins
