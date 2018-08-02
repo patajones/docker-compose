@@ -5,7 +5,9 @@ services:
     image: alpine/git
     command: git clone https://github.com/patajones/redmine_prj_treeview.git /plugins/redmine_prj_treeview
     volumes:
-      - /plugins:/plugins
+      - type: bind
+        source: /root/plugins
+        target: /plugins
       
   redmine:
     image: redmine:3.4.6
@@ -13,6 +15,8 @@ services:
       - "RAILS_ENV=development"
       - "REDMINE_PLUGINS_MIGRATE=yes"
     volumes:
-      - /plugins:/usr/src/redmine/plugins
+      - type: bind
+        source: /root/plugins
+        target: /usr/src/redmine/plugins
     ports:
       - "8000:3000"
